@@ -18,3 +18,12 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+/*Rutas de vehiculos*/
+Route::get('/vehiculos', 'VehiculoController@index')->name('vehiculos.index');
+Route::get('/vehiculos/registrar', 'VehiculoController@create')->name('vehiculos.create');
+Route::post('/vehiculos/registrar-vehiculo', 'VehiculoController@store')->name('vehiculos.store');
+Route::delete('/vehiculos/eliminar-vehiculo/{vehiculo}', 'VehiculoController@destroy')->name('vehiculos.destroy');
+Route::get('/vehiculos/mostrar', 'VehiculoController@show')->name('vehiculos.show');
+Route::get('/vehiculos/editar', 'VehiculoController@edit')->name('vehiculos.edit');
+/*Fin rutas de vehiculos*/
+
