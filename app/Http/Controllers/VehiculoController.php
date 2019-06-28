@@ -40,13 +40,17 @@ class VehiculoController extends Controller
      */
     public function store(Request $request)
     {
+        $message=([
+        'placa.unique' => 'Este vehiculo ya ha sido registrado',
+        'required'=>'verifique que todos los campos hayan sido diligenciados correctamente'
+    ]);
         $request->validate([
             'placa' => 'required|unique:vehiculos|string|max:6',
             'color' => 'required|string',
             'marca' => 'required|string',
             'tipo'  => 'required|string',
             'puestos' => 'integer|min:1'
-        ]);
+        ],$message);
 
         Vehiculo::Create($request->all());
 
