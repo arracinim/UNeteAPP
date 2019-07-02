@@ -16,7 +16,7 @@ class VehiculoController extends Controller
      */
     public function index()
     {
-        $vehiculos = Vehiculo::latest()->paginate(5);
+        $vehiculos = Vehiculo::where('cedula','=',auth()->user()->cedula)->paginate(5);
 
         return view('vehiculos.index', compact('vehiculos'))->
         with('i',(request()->input('page',1)-1)*5);
@@ -49,9 +49,10 @@ class VehiculoController extends Controller
             'color' => 'required|string',
             'marca' => 'required|string',
             'tipo'  => 'required|string',
-            'puestos' => 'integer|min:1'
+            'puestos' => 'integer|min:1',
         ],$message);
 
+        $request['cedula'] = auth()->user()->cedula;
         Vehiculo::Create($request->all());
 
         return redirect() -> route('vehiculos.index')
@@ -107,7 +108,7 @@ class VehiculoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  Vehiculo  $vehiculo
      * @return \Illuminate\Http\Response
      */
     public function destroy(Vehiculo $vehiculo)
@@ -118,4 +119,5 @@ class VehiculoController extends Controller
         return redirect()->route('vehiculos.index')
             ->with('succes','vehiculo eliminado satisfactoriamente');
     }
+
 }
