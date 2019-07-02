@@ -74,7 +74,7 @@
                                 <label for="tipo" class="col-md-4 col-form-label text-md-right">{{ __('Tipo de vehiculo') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="tipo" type="text" class="form-control @error('tipo') is-invalid @enderror" name="tipo"  autocomplete="tipo">
+                                    <input id="tipo" type="text" class="form-control @error('tipo') is-invalid @enderror" name="tipo"  value="{{ $vehiculo->tipo }}" autocomplete="tipo">
 
                                     @error('tipo')
                                     <span class="invalid-feedback" role="alert">
@@ -88,7 +88,7 @@
                                 <label for="puestos" class="col-md-4 col-form-label text-md-right">{{ __('Puestos') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="puestos" type="number" class="form-control @error('puestos') is-invalid @enderror" name="puestos"  autocomplete="puestos">
+                                    <input id="puestos" type="number" class="form-control @error('puestos') is-invalid @enderror" name="puestos"  value="{{ $vehiculo->puestos }}" autocomplete="puestos">
 
                                     @error('puestos')
                                     <span class="invalid-feedback" role="alert">
@@ -97,7 +97,6 @@
                                     @enderror
                                 </div>
                             </div>
-
 
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">

@@ -78,8 +78,9 @@ class VehiculoController extends Controller
      * @param  Vehiculo $vehiculo
      * @return \Illuminate\Http\Response
      */
-    public function edit(Vehiculo $vehiculo)
+    public function edit(int $id)
     {
+        $vehiculo = Vehiculo::find($id);
         return view('vehiculos.edit',compact('vehiculo'));
     }
 
