@@ -13,8 +13,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    You are logged in!
+                        {{ auth()->user()->name }}, Bienvenido a UNete.
                 </div>
             </div>
         </div>

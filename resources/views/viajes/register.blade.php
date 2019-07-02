@@ -23,15 +23,21 @@
         </div>
     @endif
 
+    @if ($message = Session::get('success'))
+        <div class="alert alert-success">
+            <p>{{ $message }}</p>
+        </div>
+    @endif
+
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">{{ __('Ofrecer Viaje') }}</div>
 
-                    @if($vehiculos->isNotEmpty())
+                    @if(sizeof($vehiculos)>0)
                     <div class="card-body">
-                        <form method="POST" action="{{ route('vehiculos.store') }}">
+                        <form method="POST" action="{{ route('viajes.store') }}">
                             @csrf
 
                             <div class="form-group row">
@@ -74,7 +80,7 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="marca" class="col-md-4 col-form-label text-md-right">{{ __('Puestos disponibles') }}</label>
+                                <label for="puestos_disponibles" class="col-md-4 col-form-label text-md-right">{{ __('Puestos disponibles') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="puestos_disponibles" type="number" class="form-control @error('puestos_disponibles') is-invalid @enderror" name="puestos_disponibles" >
@@ -88,10 +94,10 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="color" class="col-md-4 col-form-label text-md-right">{{ __('Origen') }}</label>
+                                <label for="origen" class="col-md-4 col-form-label text-md-right">{{ __('Origen') }}</label>
 
                                 <div class="col-md-6">
-                                    <select id="origen"class="form-control">
+                                    <select id="origen"class="form-control @error('origen') is-invalid @enderror" name="origen">
                                         <option>-</option>
                                         <option>Minas</option>
                                         <option>Volador</option>
@@ -108,10 +114,10 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="color" class="col-md-4 col-form-label text-md-right">{{ __('Destino') }}</label>
+                                <label for="destino" class="col-md-4 col-form-label text-md-right">{{ __('Destino') }}</label>
 
                                 <div class="col-md-6">
-                                    <select id="destino"class="form-control">
+                                    <select id="destino"class="form-control @error('destino') is-invalid @enderror" name="destino">
                                         <option>-</option>
                                         <option>Minas</option>
                                         <option>Volador</option>
@@ -131,7 +137,7 @@
                                 <label for="color" class="col-md-4 col-form-label text-md-right">{{ __('Vehiculo') }}</label>
 
                                 <div class="col-md-6">
-                                    <select id="vehiculo"class="form-control">
+                                    <select id="vehiculo"class="form-control" name="vehiculo">
                                         @foreach($vehiculos as $vehiculo)
                                             <option>{{$vehiculo->placa}}</option>
                                          @endforeach
@@ -157,7 +163,7 @@
                     </div>
                         @else
                             <div class="alert alert-warning" role="alert">
-                                Usted no tienevehículos registrados actualmente, registre uno
+                                Usted no tiene vehículos registrados actualmente, registre uno
                             </div>
                         @endif
                 </div>

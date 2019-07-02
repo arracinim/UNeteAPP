@@ -19,7 +19,7 @@ class CreateViajes extends Migration
             $table->string('origen');
             $table->string('destino');
             $table->string('punto_de_encuentro');
-            $table->integer('puestos_disponibles ');
+            $table->integer('puestos_disponibles');
             $table->unsignedInteger('id_estudiante');
             $table->foreign('id_estudiante')->references('id')->on('users');
             $table->unsignedInteger('id_vehiculo');
