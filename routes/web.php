@@ -27,3 +27,7 @@ Route::get('/vehiculos/mostrar', 'VehiculoController@show')->name('vehiculos.sho
 Route::get('/vehiculos/editar', 'VehiculoController@edit')->name('vehiculos.edit');
 /*Fin rutas de vehiculos*/
 
+/*Rutas de viajes*/
+Route::get('/viajes/ofrecer', 'ViajeController@index')->name('viajes.register');
+/*Fin rutas de viajes*/
+
