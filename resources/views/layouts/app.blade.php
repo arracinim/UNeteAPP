@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSRF Token -->
+    <!-- Bootstrap -->
+     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
@@ -53,6 +53,24 @@
                         @endguest
                     </ul>
 
+                    <ul class="navbar-nav mr-auto">
+                        @guest
+                            <li></li>
+                        @else
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown1" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    Viajes <span class="caret"></span>
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('viajes.register') }}">
+                                        Ofrecer Viaje
+                                    </a>
+                                </div>
+                            </li>
+                        @endguest
+                    </ul>
+
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
@@ -92,5 +110,6 @@
             @yield('content')
         </main>
     </div>
-</body>
+    <!-- Bootstrap -->
+   </body>
 </html>

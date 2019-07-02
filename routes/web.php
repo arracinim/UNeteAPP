@@ -28,3 +28,8 @@ Route::get('/vehiculos/editar', 'VehiculoController@edit')->name('vehiculos.edit
 Route::put('/vehiculos/editar-vehiculo/{vehiculo}', 'VehiculoController@update')->name('vehiculos.update');
 /*Fin rutas de vehiculos*/
 
+/*Rutas de viajes*/
+Route::get('/viajes/ofrecer', 'ViajeController@index')->name('viajes.register');
+Route::post('/viajes/ofrecer', 'ViajeController@store')->name('viajes.store');
+/*Fin rutas de viajes*/
+
