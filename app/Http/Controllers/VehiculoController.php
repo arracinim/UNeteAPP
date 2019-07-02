@@ -65,8 +65,10 @@ class VehiculoController extends Controller
      * @param  Vehiculo $vehiculo
      * @return \Illuminate\Http\Response
      */
-    public function show(Vehiculo $vehiculo)
+    public function show(int $id)
     {
+        $vehiculo = Vehiculo::find($id);
+        //Se agregaria condición para ver si trajo o no datos
         return view ('vehiculos.show', compact('vehiculo'));
     }
 
