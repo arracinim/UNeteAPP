@@ -30,5 +30,8 @@ Route::get('/vehiculos/editar', 'VehiculoController@edit')->name('vehiculos.edit
 /*Rutas de viajes*/
 Route::get('/viajes/ofrecer', 'ViajeController@index')->name('viajes.register');
 Route::post('/viajes/ofrecer', 'ViajeController@store')->name('viajes.store');
+Route::get('/viajes/reservar', 'reservarViajeController@index') -> name('viajes.reserve');
+Route::get('/viajes/reservar/{id}','reservarViajeController@store')->name('viajes.reservar');
+
 /*Fin rutas de viajes*/
 

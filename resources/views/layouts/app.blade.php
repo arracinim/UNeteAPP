@@ -66,6 +66,9 @@
                                     <a class="dropdown-item" href="{{ route('viajes.register') }}">
                                         Ofrecer Viaje
                                     </a>
+                                    <a class="dropdown-item" href = "{{route ('viajes.reserve')}}">
+                                        Reservar viaje
+                                    </a>
                                 </div>
                             </li>
                         @endguest
