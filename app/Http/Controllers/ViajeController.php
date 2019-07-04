@@ -10,7 +10,7 @@ class ViajeController extends Controller
 {
     public function index()
     {
-        $vehiculos=DB::select('SELECT placa FROM vehiculos WHERE cedula=?',[auth()->user()->cedula]);
+        $vehiculos=DB::select('SELECT placa FROM vehiculos WHERE id_estud=?',[auth()->user()->id]);
             //DB::table('vehiculos')->select('placa')->where('cedula',auth()->user()->cedula);
         return view('viajes/register')->with('vehiculos',$vehiculos);
     }

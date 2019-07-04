@@ -16,7 +16,7 @@ class VehiculoController extends Controller
      */
     public function index()
     {
-        $vehiculos = Vehiculo::where('cedula','=',auth()->user()->cedula)->paginate(5);
+        $vehiculos = Vehiculo::where('id_estud','=',auth()->user()->id)->paginate(5);
 
         return view('vehiculos.index', compact('vehiculos'))->
         with('i',(request()->input('page',1)-1)*5);
@@ -52,7 +52,7 @@ class VehiculoController extends Controller
             'puestos' => 'integer|min:1',
         ],$message);
 
-        $request['cedula'] = auth()->user()->cedula;
+        $request['id_estud'] = auth()->user()->id;
         Vehiculo::Create($request->all());
 
         return redirect() -> route('vehiculos.index')

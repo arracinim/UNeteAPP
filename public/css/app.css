@@ -150,7 +150,7 @@ sub {
 }
 
 sup {
-    top: -.5em;
+    top: -.5em;</div>
 }
 
 a {
@@ -8536,7 +8536,4 @@ a.text-dark:focus,a.text-dark:hover {
 .navbar-laravel {
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0,0,0,.04);
-}
-.py-4 {
-    background: #4aa0e6;
 }

@@ -36,4 +36,12 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    /**
+     * Retorna la cedula, para permitir el logueo con cedula
+     */
+    public function username()
+    {
+        return 'cedula';
+    }
 }

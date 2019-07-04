@@ -15,8 +15,8 @@ class CreateVehiculosTable extends Migration
     {
         Schema::create('vehiculos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('cedula');
-            $table->string('placa');
+            $table->unsignedBigInteger('id_estud')->references('id')->on('users');
+            $table->string('placa')->unique();
             $table->string('color');
             $table->string('marca');
             $table->string('tipo');
