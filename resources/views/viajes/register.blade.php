@@ -7,7 +7,7 @@
                 <h2>Ofrecer Viaje</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('home') }}"> Back</a>
+                <a class="btn btn-primary" href="{{ route('users.edit') }}"> Back</a>
             </div>
         </div>
     </div>

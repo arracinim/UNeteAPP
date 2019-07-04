@@ -33,3 +33,7 @@ Route::get('/viajes/ofrecer', 'ViajeController@index')->name('viajes.register');
 Route::post('/viajes/ofrecer', 'ViajeController@store')->name('viajes.store');
 /*Fin rutas de viajes*/
 
+/*Ruta modificar Perfil*/
+Route::get('/users/modificar', 'ModificarPerfilController@edit')->name('users.edit');
+Route::put('/users/modificar/{id}', 'ModificarPerfilController@update')->name('users.update');
+
