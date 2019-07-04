@@ -25,6 +25,7 @@ Route::post('/vehiculos/registrar-vehiculo', 'VehiculoController@store')->name('
 Route::delete('/vehiculos/eliminar-vehiculo/{vehiculo}', 'VehiculoController@destroy')->name('vehiculos.destroy');
 Route::get('/vehiculos/mostrar/{id}', 'VehiculoController@show')->name('vehiculos.show');
 Route::get('/vehiculos/editar/{id}', 'VehiculoController@edit')->name('vehiculos.edit');
+Route::put('/vehiculos/editar/{id}', 'VehiculoController@update')->name('vehiculos.update');
 /*Fin rutas de vehiculos*/
 
 /*Rutas de viajes*/

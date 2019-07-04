@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Vehiculo;
+use phpDocumentor\Reflection\Types\Integer;
 
 
 class VehiculoController extends Controller
@@ -78,8 +79,9 @@ class VehiculoController extends Controller
      * @param  Vehiculo $vehiculo
      * @return \Illuminate\Http\Response
      */
-    public function edit(Vehiculo $vehiculo)
+    public function edit(int $id)
     {
+        $vehiculo = Vehiculo::find($id);
         return view('vehiculos.edit',compact('vehiculo'));
     }
 
@@ -90,17 +92,17 @@ class VehiculoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Vehiculo $vehiculo)
+    public function update(Request $request, int $id)
     {
         $request->validate([
-            'placa' => 'required|unique:vehiculos|string|max:6',
             'color' => 'required|string',
             'marca' => 'required|string',
             'tipo'  => 'required|string',
             'puestos' => 'integer|min:1'
         ]);
 
-        $vehiculo::update($request->all());
+        $vehiculo = Vehiculo::find($id);
+        $vehiculo->update($request->all());
 
         return redirect() -> route('vehiculos.index')
             -> with('success','Vehiculo actualizado exitosamente');
