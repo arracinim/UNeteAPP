@@ -35,7 +35,7 @@
                 <table class="table">
                     <thead>
                     <tr>
-                        <th scope="col">#</th>
+
                         <th scope="col">Hora de Salida</th>
                         <th scope="col">Origen</th>
                         <th scope="col">Destino</th>
@@ -50,32 +50,20 @@
                     @if(sizeof($viajes)>0)
                         @foreach ($viajes as $viaje)
                             @if(($viaje -> puestos_disponibles) > 0)
-                            <tr>
-                                <td>{{ $viaje->id }}</td>
-                                <td>{{ $viaje->hora_de_salida }}</td>
-                                <td>{{ $viaje->origen }}</td>
-                                <td>{{ $viaje->destino }}</td>
-                                <td>{{ $viaje->punto_de_encuentro }}</td>
-                                <td>{{ $viaje->puestos_disponibles }}</td>
-                                <td>
-                                    <a class="btn btn-info" href="{{ route('viajes.reservar',$viaje->id)}}">RESERVAR</a>
-                                </td>
-                            </tr>
-                            @else
-                                <tbody>
                                 <tr>
-                                    <td colspan="6">
-                                        <div class="alert alert-warning" role="alert">
-                                            No hay viajes disponibles actualmente
-                                        </div>
+
+                                    <td>{{ $viaje->hora_de_salida }}</td>
+                                    <td>{{ $viaje->origen }}</td>
+                                    <td>{{ $viaje->destino }}</td>
+                                    <td>{{ $viaje->punto_de_encuentro }}</td>
+                                    <td>{{ $viaje->puestos_disponibles }}</td>
+                                    <td>
+                                        <a class="btn btn-info" href="{{ route('viajes.reservar',$viaje->id)}}">RESERVAR</a>
                                     </td>
                                 </tr>
-                                </tbody>
                             @endif
                         @endforeach
-
                     @else
-                        <tbody>
                         <tr>
                             <td colspan="6">
                                 <div class="alert alert-warning" role="alert">
@@ -83,7 +71,6 @@
                                 </div>
                             </td>
                         </tr>
-                        </tbody>
                     @endif
                 </table>
 
@@ -101,7 +88,5 @@
             </div>
         </div>
     </div>
-
-
 
 @endsection
