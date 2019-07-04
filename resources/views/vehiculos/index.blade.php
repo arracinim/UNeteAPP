@@ -23,11 +23,11 @@
             <tr>
                 <th scope="col">No.</th>
                 <th scope="col">Placa</th>
-                <th scope="col">color</th>
-                <th scope="col">marca</th>
-                <th scope="col">tipo</th>
-                <th scope="col">puestos</th>
-                <th scope="col">Accion</th>
+                <th scope="col">Color</th>
+                <th scope="col">Marca</th>
+                <th scope="col">Tipo</th>
+                <th scope="col">Puestos</th>
+                <th scope="col">Acción</th>
             </tr>
             </thead>
             @if(sizeof($vehiculos)>0)
@@ -36,7 +36,7 @@
                     <tr>
                         <th scope="col">{{ ++$i }}</th>
                         <td>{{ $vehiculo->placa }}</td>
-                        <td>{{ $vehiculo->color }}</td>
+                        <td><input id="color" type="color" readonly="readonly" name="color"  value="{{ $vehiculo->color }}" autocomplete="color" disabled="disabled"></td>
                         <td>{{ $vehiculo->marca }}</td>
                         <td>{{ $vehiculo->tipo }}</td>
                         <td>{{ $vehiculo->puestos }}</td>

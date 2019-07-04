@@ -43,7 +43,7 @@
                                        class="col-md-4 col-form-label text-md-right">{{ __('Color') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="color" type="text"
+                                    <input id="color" type="color"
                                            class="form-control @error('color') is-invalid @enderror" name="color"
                                            value="{{ $vehiculo->color }}" autocomplete="color">
 

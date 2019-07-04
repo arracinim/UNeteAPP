@@ -38,4 +38,14 @@ class ViajeController extends Controller
         return redirect() -> route('viajes.register')
             -> with('success','Viaje publicado');
     }
+    public static function reservarPuesto(int $id)
+    {
+        $viaje = Viaje::find($id);
+        $viaje['puestos_disponibles'] = $viaje['puestos_disponibles']-1 ;
+        $viaje->save();
+
+        return redirect() -> route('viajes.reserve')
+            -> with('success','Viaje reservado exitosamente');
+
+    }
 }

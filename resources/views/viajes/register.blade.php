@@ -40,29 +40,19 @@
 
                                 <div class="form-group row">
                                     <label for="hora_de_salida"
-                                           class="col-md-4 col-form-label text-md-right">{{ __('Hora y fecha de salida') }}</label>
+                                           class="col-md-4 col-form-label text-md-right">{{ __('Hora de salida') }}</label>
 
                                     <div class="col-md-6">
-                                        <div class="form-group">
-                                            <div class='input-group date @error('hora_de_salida') is-invalid @enderror'
-                                                 id="hora_de_salida">
-                                                <input type='text' class="form-control" name="hora_de_salida"/>
-                                                <span class="input-group-addon">
-                                            <span class="glyphicon glyphicon-calendar"></span>
-                                             </span>
-                                            </div>
-                                        </div>
+                                        <input id="color" type="datetime-local"
+                                               class="form-control @error('hora_de_salida') is-invalid @enderror" name="hora_de_salida"
+                                               value="{{ old('hora_de_salida') }}" autocomplete="color">
+
                                         @error('hora_de_salida')
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                         @enderror
                                     </div>
-                                    <script type="text/javascript">
-                                        $(function () {
-                                            $('#hora_de_salida').datetimepicker();
-                                        });
-                                    </script>
                                 </div>
 
                                 <div class="form-group row">
