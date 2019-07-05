@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Laravel</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -68,12 +69,12 @@
     @if (Route::has('login'))
         <div class="top-right links">
             @auth
-                <a href="{{ url('/home') }}">Home</a>
+                <a href="{{ url('/home') }}">{{ __('Inicio') }}</a>
             @else
-                <a href="{{ route('login') }}">Login</a>
+                <a href="{{ route('login') }}"><i class="fas fa-sign-in-alt"></i> {{ __('Iniciar sesion') }}</a>
 
                 @if (Route::has('register'))
-                    <a href="{{ route('register') }}">Register</a>
+                    <a href="{{ route('register') }}"><i class="fas fa-user-plus"></i> {{ __('Registrarse') }}</a>
                 @endif
             @endauth
         </div>
@@ -81,13 +82,13 @@
 
     <div class="content">
         <div class="title m-b-md">
-            UNeteAPP
+            {{ config('app.name', 'UNeteAPP') }}
         </div>
 
         <div class="links">
-            <a href="https://laravel.com/docs">¿Que somos?</a>
-            <a href="https://laracasts.com">Instrucciones</a>
-            <a href="https://laravel-news.com">Noticias</a>
+            <a href="https://laravel.com/docs">{{ __('¿Que somos?') }}</a>
+            <a href="https://laracasts.com">{{ __('Instrucciones') }}</a>
+            <a href="https://laravel-news.com">{{ __('Noticias') }}</a>
         </div>
     </div>
 </div>

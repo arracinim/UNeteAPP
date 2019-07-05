@@ -57,6 +57,17 @@ class ModificarPerfilController extends Controller
 
     public function update(Request $request)
     {
+        $message=([
+            'required'=>'verifique que todos los campos hayan sido diligenciados correctamente'
+        ]);
+
+        $request->validate([
+            'name' => 'required|string',
+            'email' => 'required|string|email',
+            'cedula' => 'required|integer|min:0',
+            'password'  => 'required|string|min:8',
+        ],$message);
+
         $user = User::find(auth()->user()->id);
         $user->update($request->all());
 

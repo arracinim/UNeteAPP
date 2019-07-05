@@ -19,12 +19,9 @@ class ReservarViaje extends Migration
             $table->string('origen');
             $table->string('destino');
             $table->string('punto_de_encuentro');
-            $table->unsignedInteger('id_oferta');
-            $table->foreign('id_oferta')->references('id')->on('users');
-            $table->unsignedInteger('id_vehiculo');
-            $table->foreign('id_vehiculo')->references('id')->on('vehiculos');
-            $table ->unsignedInteger('id_reserva');
-            $table->foreign('id_reserva')->references('id')->on('users');
+            $table->unsignedBigInteger('id_oferta')->references('id')->on('users');
+            $table->unsignedBigInteger('id_vehiculo')->references('id')->on('vehiculos');
+            $table->unsignedBigInteger('id_reserva')->references('id')->on('users');
             $table->timestamps();
         });
     }
