@@ -13,7 +13,7 @@
                                 {{ session('status') }}
                             </div>
                         @endif
-                        {{ auth()->user()->name }}, Bienvenido a UNete.
+                        {{ auth()->user()->name }}, {{ __('Bienvenido a UNete') }}.
                     </div>
                 </div>
             </div>

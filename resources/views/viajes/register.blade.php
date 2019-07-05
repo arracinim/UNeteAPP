@@ -24,7 +24,7 @@
         <div class="row">
             <div class="col-lg-12 margin-tb">
                 <div class="pull-left">
-                    <h2>Ofrecer Viaje</h2>
+                    <h2>{{ __('Ofrecer Viaje') }}</h2>
                 </div>
             </div>
         </div>
@@ -164,7 +164,7 @@
                         </div>
                     @else
                         <div class="alert alert-warning" role="alert">
-                            Usted no tiene vehículos registrados actualmente, registre uno
+                            {{ __('Usted no tiene vehículos registrados actualmente, registre uno') }}
                         </div>
                     @endif
                 </div>

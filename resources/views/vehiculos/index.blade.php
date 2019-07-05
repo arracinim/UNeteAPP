@@ -43,14 +43,14 @@
                         <td>
                             <form action="{{ route('vehiculos.destroy',$vehiculo->id) }}" method="POST">
 
-                                <a class="btn btn-info" href="{{ route('vehiculos.show',$vehiculo->id) }}">Show</a>
+                                <a class="btn btn-info" href="{{ route('vehiculos.show',$vehiculo->id) }}"title="Mostrar"><i class="fas fa-eye"></i></a>
 
-                                <a class="btn btn-primary" href="{{ route('vehiculos.edit',$vehiculo->id) }}">Edit</a>
+                                <a class="btn btn-primary" href="{{ route('vehiculos.edit',$vehiculo->id) }}" title="Editar"><i class="fas fa-edit"></i></a>
 
                                 @csrf
                                 @method('DELETE')
 
-                                <button type="submit" class="btn btn-danger">Delete</button>
+                                <button type="submit" class="btn btn-danger" title="Eliminar"><i class="fas fa-trash-alt"></i></button>
                             </form>
                         </td>
                     </tr>
