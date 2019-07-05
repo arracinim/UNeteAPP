@@ -43,30 +43,30 @@
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown1" class="nav-link dropdown-toggle" href="#" role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ __('Vehiculo') }} <span class="caret"></span>
+                                <i class="fas fa-car"></i> {{ __('Vehiculo') }} <span class="caret"></span>
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('vehiculos.index') }}">
-                                    {{ __('Sus vehiculos') }}
+                                    <i class="fas fa-list-ol"></i> {{ __('Sus vehiculos') }}
                                 </a>
                                 <a class="dropdown-item" href="{{ route('vehiculos.create') }}">
-                                    {{ __('Registrar') }}
+                                    <i class="fas fa-plus-circle"></i> {{ __('Registrar') }}
                                 </a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown1" class="nav-link dropdown-toggle" href="#" role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                Viajes <span class="caret"></span>
+                                <i class="fas fa-road"></i> {{ __('Viajes') }} <span class="caret"></span>
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('viajes.register') }}">
-                                    {{ __('Ofrecer viaje') }}
+                                    <i class="fas fa-bus"></i> {{ __('Ofrecer viaje') }}
                                 </a>
                                 <a class="dropdown-item" href = "{{route ('viajes.reserve')}}">
-                                    {{ __('Reservar viaje') }}
+                                    <i class="fas fa-bookmark"></i> {{ __('Reservar viaje') }}
                                 </a>
                             </div>
                         </li>
@@ -78,28 +78,28 @@
                     <!-- Authentication Links -->
                     @guest
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Iniciar sesion') }}</a>
+                            <a class="nav-link" href="{{ route('login') }}"><i class="fas fa-sign-in-alt"></i> {{ __('Iniciar sesion') }}</a>
                         </li>
                         @if (Route::has('register'))
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register') }}">{{ __('Registrarse') }}</a>
+                                <a class="nav-link" href="{{ route('register') }}"><i class="fas fa-user-plus"></i>  {{ __('Registrarse') }}</a>
                             </li>
                         @endif
                     @else
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }} <span class="caret"></span>
+                                <i class="fas fa-address-card"></i> {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('users.edit') }}">
-                                        {{ __('Modificar perfil') }}
+                                        <i class="fas fa-user-edit"></i> {{ __('Modificar perfil') }}
                                     </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                    {{ __('Salir') }}
+                                        <i class="fas fa-sign-out-alt"></i> {{ __('Salir') }}
                                 </a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST"
                                       style="display: none;">

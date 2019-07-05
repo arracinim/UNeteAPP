@@ -62,9 +62,9 @@ class ModificarPerfilController extends Controller
         ]);
 
         $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255',
-            'cedula' => 'required|integer|min:0|max:99999999999999',
+            'name' => 'required|string',
+            'email' => 'required|string|email',
+            'cedula' => 'required|integer|min:0',
             'password'  => 'required|string|min:8',
         ],$message);
 

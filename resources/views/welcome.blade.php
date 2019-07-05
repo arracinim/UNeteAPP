@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Laravel</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -70,10 +71,10 @@
             @auth
                 <a href="{{ url('/home') }}">{{ __('Inicio') }}</a>
             @else
-                <a href="{{ route('login') }}">{{ __('Iniciar sesion') }}</a>
+                <a href="{{ route('login') }}"><i class="fas fa-sign-in-alt"></i> {{ __('Iniciar sesion') }}</a>
 
                 @if (Route::has('register'))
-                    <a href="{{ route('register') }}">{{ __('Registrarse') }}</a>
+                    <a href="{{ route('register') }}"><i class="fas fa-user-plus"></i> {{ __('Registrarse') }}</a>
                 @endif
             @endauth
         </div>

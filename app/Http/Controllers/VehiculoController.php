@@ -46,7 +46,7 @@ class VehiculoController extends Controller
         'required'=>'verifique que todos los campos hayan sido diligenciados correctamente'
     ]);
         $request->validate([
-            'placa' => 'required|unique:vehiculos|string|max:6',
+            'placa' => ['regex:/(^([A-Z]{3}-\d{3})$)|(^([A-Z]{3}-\d{2}[A-Z]{1})$)/','required','unique:vehiculos','string','max:7'],
             'color' => 'required|string',
             'marca' => 'required|string',
             'tipo'  => 'required|string',
