@@ -20,8 +20,8 @@ class reservarViajeController extends Controller
 
     //guardar el viaje en la base de datos
 
-    public function store(Request $request, $id){
-
+    public function store($id){
+        $request = new Request();
         $viajeSeleccionado = DB::select('SELECT * FROM viajes WHERE id=?',[$id]);
         $request['id_reserva'] = auth::user()->id;  //ID DE LA PERSONA QUE RESERVA
         $request['id_oferta'] = $viajeSeleccionado[0] -> id_estudiante; //ID DE LA PERSONA QUE OFERTA EL VIAJE
@@ -31,11 +31,14 @@ class reservarViajeController extends Controller
         $request['punto_de_encuentro'] = $viajeSeleccionado[0] -> punto_de_encuentro;
         $request['id_vehiculo'] = $viajeSeleccionado[0] -> id_vehiculo;
 
-        ViajeController::reservarPuesto($id);
+
         viajeReservado::Create($request->all());
+        ViajeController::reservarPuesto($id);
 
         return redirect() -> route('viajes.reserve')
             -> with('success','Viaje reservado exitosamente');
+
+
     }
 
 }

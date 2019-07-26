@@ -44,8 +44,7 @@ class ViajeController extends Controller
         $viaje['puestos_disponibles'] = $viaje['puestos_disponibles']-1 ;
         $viaje->save();
 
-        return redirect() -> route('viajes.reserve')
-            -> with('success','Viaje reservado exitosamente');
+
 
     }
 }

@@ -58,7 +58,7 @@
                                     <td>{{ $viaje->punto_de_encuentro }}</td>
                                     <td>{{ $viaje->puestos_disponibles }}</td>
                                     <td>
-                                        <form action="{{ route('viajes.reservar',$viaje->id)}}" method="POST">
+                                        <form action="{{ route('viajes.reservar',$viaje->id)}}" method="GET">
                                             <button type="submit" class="btn btn-danger" title="Reservar">Reservar</button>
                                         </form>
                                     </td>
