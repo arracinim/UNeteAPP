@@ -32,7 +32,7 @@ Route::put('/vehiculos/editar/{id}', 'VehiculoController@update')->name('vehicul
 Route::get('/viajes/ofrecer', 'ViajeController@index')->name('viajes.register');
 Route::post('/viajes/ofrecer', 'ViajeController@store')->name('viajes.store');
 Route::get('/viajes/reservar', 'reservarViajeController@index') -> name('viajes.reserve');
-Route::post('/viajes/reservar/{id}','reservarViajeController@store')->name('viajes.reservar');
+Route::get('/viajes/reservar/{id}','reservarViajeController@store')->name('viajes.reservar');
 
 /*Fin rutas de viajes*/
 
