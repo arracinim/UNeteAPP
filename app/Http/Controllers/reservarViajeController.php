@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\DB;
 class reservarViajeController extends Controller
 {
     //Extraigo todos los viajes de la base de datos y los muestro
-    //Se realiza prueba en otro pc
     public function index()
     {
         $viajes = DB::select('SELECT * FROM viajes');
