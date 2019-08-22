@@ -60,9 +60,17 @@
                                        class="col-md-4 col-form-label text-md-right">{{ __('Marca') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="marca" type="text"
-                                           class="form-control @error('marca') is-invalid @enderror" name="marca"
-                                           value="{{ $vehiculo->marca }}" autocomplete="marca">
+                                    <select id="marca" class="form-control @error('marca') is-invalid @enderror"
+                                            name="marca" >
+                                        <option value="{{ $vehiculo->marca }}" selected hidden>
+                                            {{ $vehiculo->marca }}
+                                        </option>
+                                        <option>Chevrolet</option>
+                                        <option>Hyundai</option>
+                                        <option>Ferrari</option>
+                                        <option>Porsche</option>
+                                        <option>Audi</option>
+                                    </select>
 
                                     @error('marca')
                                     <span class="invalid-feedback" role="alert">
@@ -77,9 +85,14 @@
                                        class="col-md-4 col-form-label text-md-right">{{ __('Tipo de vehiculo') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="tipo" type="text"
-                                           class="form-control @error('tipo') is-invalid @enderror" name="tipo"
-                                           value="{{ $vehiculo->tipo }}" autocomplete="tipo">
+                                    <select id="tipo" class="form-control @error('tipo') is-invalid @enderror"
+                                            name="tipo">
+                                        <option value="{{ $vehiculo->tipo }}" selected hidden>
+                                            {{ $vehiculo->tipo }}
+                                        </option>
+                                        <option>Carro</option>
+                                        <option>Moto</option>
+                                    </select>
 
                                     @error('tipo')
                                     <span class="invalid-feedback" role="alert">
