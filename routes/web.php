@@ -33,6 +33,10 @@ Route::get('/viajes/ofrecer', 'ViajeController@index')->name('viajes.register');
 Route::post('/viajes/ofrecer', 'ViajeController@store')->name('viajes.store');
 Route::get('/viajes/reservar', 'reservarViajeController@index') -> name('viajes.reserve');
 Route::get('/viajes/reservar/{id}','reservarViajeController@store')->name('viajes.reservar');
+Route::get('/viajes/misviajes','misViajesController@view')->name('viajes.misviajes');
+Route::delete('/viajes/misviajes/eliminarviajeofertado/{viaje}','misViajesController@deleteOfer')->name('misViajes.deleteOfer');
+Route::delete('/viajes/misviajes/eliminarviajereservado/{viaje}','misViajesController@deleteReserve')->name('misViajes.deleteReserve');
+
 
 /*Fin rutas de viajes*/
 
