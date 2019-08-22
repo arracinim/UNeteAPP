@@ -68,6 +68,9 @@
                                 <a class="dropdown-item" href = "{{route ('viajes.reserve')}}">
                                     <i class="fas fa-bookmark"></i> {{ __('Reservar viaje') }}
                                 </a>
+                                <a class="dropdown-item" href="{{route ('viajes.misviajes')}}">
+                                    <i class="fas fa-car-alt"></i>{{ __(' Mis Viajes') }}
+                                </a>
                             </div>
                         </li>
                         @if(Auth::user()->isAdmin())
