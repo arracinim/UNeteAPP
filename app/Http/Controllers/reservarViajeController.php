@@ -14,7 +14,7 @@ class reservarViajeController extends Controller
     //Extraigo todos los viajes de la base de datos y los muestro
     public function index()
     {
-        $viajes = DB::select('SELECT * FROM viajes');
+        $viajes = DB::select('SELECT * FROM viajes WHERE puestos_disponibles>0');
         return view('viajes/reserve')->with('viajes',$viajes);
     }
 

@@ -19,20 +19,26 @@ class ViajeController extends Controller
     {
 
         $message=([
-            'required'=>'verifique que todos los campos hayan sido diligenciados correctamente'
+            'required'=>'verifique que todos los campos hayan sido diligenciados correctamente',
+            'min'=>'No puede crear viajes con menos de 1 puesto',
+            'max'=>'No puede crear viajes con mas de los puestos disponibles en su vehiculo'
         ]);
+
+
+        $vehiculo_seleccionado=DB::select('SELECT id, puestos FROM vehiculos WHERE placa=?',[$request->vehiculo]);
+        $request['id_vehiculo'] = $vehiculo_seleccionado[0]->id;
+        $request['id_estudiante'] = auth()->user()->id;
+
         $request->validate([
             'hora_de_salida' => 'required|date',
             'punto_de_encuentro' => 'required|string',
-            'puestos_disponibles' => 'required|integer',
+            'puestos_disponibles' => 'required|integer|min:1|max:'.$vehiculo_seleccionado[0]->puestos,
             'origen'  => ['regex:/^(minas)$|^(volador)$|^(ingeominas)$|^(mecanica)$|^(audi)$/i','required','string'],
             'destino' => ['regex:/^(minas)$|^(volador)$|^(ingeominas)$|^(mecanica)$|^(audi)$/i','required','string'],
             'vehiculo' => 'required|string',
         ],$message);
 
-        $vehiculo_seleccionado=DB::select('SELECT id FROM vehiculos WHERE placa=?',[$request->vehiculo]);
-        $request['id_vehiculo'] = $vehiculo_seleccionado[0]->id;
-        $request['id_estudiante'] = auth()->user()->id;
+
         Viaje::Create($request->all());
 
         return redirect() -> route('viajes.register')
