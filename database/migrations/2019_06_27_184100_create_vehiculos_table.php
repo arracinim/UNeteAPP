@@ -13,6 +13,7 @@ class CreateVehiculosTable extends Migration
      */
     public function up()
     {
+
         Schema::create('vehiculos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('id_estud')->references('id')->on('users');

@@ -13,6 +13,7 @@ class CreateViajes extends Migration
      */
     public function up()
     {
+
         Schema::create('viajes', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->dateTime('hora_de_salida');

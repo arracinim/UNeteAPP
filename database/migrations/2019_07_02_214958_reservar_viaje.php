@@ -13,6 +13,7 @@ class ReservarViaje extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('viajereservado');
         Schema::create('viajereservado', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->dateTime('hora_de_salida');
@@ -33,6 +34,6 @@ class ReservarViaje extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('viajeReservado');
+        Schema::dropIfExists('viajereservado');
     }
 }
