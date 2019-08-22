@@ -13,7 +13,7 @@ class ReservarViaje extends Migration
      */
     public function up()
     {
-        Schema::create('viajeReservado', function (Blueprint $table) {
+        Schema::create('viajereservado', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->dateTime('hora_de_salida');
             $table->string('origen');

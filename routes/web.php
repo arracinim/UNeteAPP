@@ -40,3 +40,11 @@ Route::get('/viajes/reservar/{id}','reservarViajeController@store')->name('viaje
 Route::get('/users/modificar', 'ModificarPerfilController@edit')->name('users.edit');
 Route::put('/users/modificar/{id}', 'ModificarPerfilController@update')->name('users.update');
 
+/*Administrador*/
+Route::get('/admin', 'AdminController@admin')
+    ->middleware('is_admin')
+    ->name('admin');
+Route::get('/users/editar/{id}', 'ModificarPerfilController@AdminEdit')->middleware('is_admin')->name('admin.editUsers');
+Route::put('/users/editar/{id}', 'ModificarPerfilController@AdminUpdate')->middleware('is_admin')->name('admin.updateUsers');
+Route::get('/users/mostrar', 'AdminController@admin')->middleware('is_admin')->name('admin.showUsers');
+Route::delete('/users/eliminar/{id}', 'ModificarPerfilController@destroy')->middleware('is_admin')->name('admin.destroyUsers');

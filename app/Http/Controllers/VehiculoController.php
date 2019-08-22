@@ -102,6 +102,7 @@ class VehiculoController extends Controller
         ]);
 
         $vehiculo = Vehiculo::find($id);
+        $request['placa'] = $vehiculo -> placa;
         $vehiculo->update($request->all());
 
         return redirect() -> route('vehiculos.index')
