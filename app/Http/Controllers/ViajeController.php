@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Viaje;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -30,7 +31,7 @@ class ViajeController extends Controller
         $request['id_estudiante'] = auth()->user()->id;
 
         $request->validate([
-            'hora_de_salida' => 'required|date',
+            'hora_de_salida' => 'required|date|after:'.Carbon::now('America/Bogota')->addHour(),
             'punto_de_encuentro' => 'required|string',
             'puestos_disponibles' => 'required|integer|min:1|max:'.$vehiculo_seleccionado[0]->puestos,
             'origen'  => ['regex:/^(minas)$|^(volador)$|^(ingeominas)$|^(mecanica)$|^(audi)$/i','required','string'],
