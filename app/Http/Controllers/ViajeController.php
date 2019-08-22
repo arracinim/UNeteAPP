@@ -25,8 +25,8 @@ class ViajeController extends Controller
             'hora_de_salida' => 'required|date',
             'punto_de_encuentro' => 'required|string',
             'puestos_disponibles' => 'required|integer',
-            'origen'  => 'required|string',
-            'destino' => 'required|string',
+            'origen'  => ['regex:/^(minas)$|^(volador)$|^(ingeominas)$|^(mecanica)$|^(audi)$/i','required','string'],
+            'destino' => ['regex:/^(minas)$|^(volador)$|^(ingeominas)$|^(mecanica)$|^(audi)$/i','required','string'],
             'vehiculo' => 'required|string',
         ],$message);
 

@@ -48,8 +48,8 @@ class VehiculoController extends Controller
         $request->validate([
             'placa' => ['regex:/(^([A-Z]{3}-\d{3})$)|(^([A-Z]{3}-\d{2}[A-Z]{1})$)/','required','unique:vehiculos','string','max:7'],
             'color' => 'required|string',
-            'marca' => 'required|string',
-            'tipo'  => 'required|string',
+            'marca' => ['regex:/^(chevrolet)$|^(hyundai)$|^(ferrari)$|^(porsche)$|^(audi)$/i','required','string'],
+            'tipo'  => ['regex:/^(moto)$|^(carro)$/i','required','string'],
             'puestos' => 'integer|min:1',
         ],$message);
 
@@ -96,8 +96,8 @@ class VehiculoController extends Controller
     {
         $request->validate([
             'color' => 'required|string',
-            'marca' => 'required|string',
-            'tipo'  => 'required|string',
+            'marca' => ['regex:/^(chevrolet)$|^(hyundai)$|^(ferrari)$|^(porsche)$|^(audi)$/i','required','string'],
+            'tipo'  => ['regex:/^(moto)$|^(carro)$/i','required','string'],
             'puestos' => 'integer|min:1'
         ]);
 
