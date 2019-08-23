@@ -59,15 +59,26 @@ class ModificarPerfilController extends Controller
     public function update(Request $request)
     {
         $message=([
-            'required'=>'verifique que todos los campos hayan sido diligenciados correctamente'
+            'required'=>'verifique que todos los campos hayan sido diligenciados correctamente',
         ]);
 
         $request->validate([
             'name' => 'required|string',
             'email' => 'required|string|email',
             'cedula' => 'required|integer|min:0',
-            'password'  => 'required|string|min:8',
         ],$message);
+        if(!is_Null($request['password']) or $request['password'] = ''){
+            $message=([
+                'required'=>'La contraseña no debe contener espacios en blanco',
+                'regex'=>'La contraseña no debe contener espacios en blanco',
+            ]);
+            $request->validate([
+                'password' => ['string','min:8','required','regex:/^\S*$/']
+            ],$message);
+        }else{
+            $user = User::find(auth()->user()->id);
+            $request['password'] = $user -> password;
+        }
 
         $user = User::find(auth()->user()->id);
         $user->update($request->all());
@@ -85,17 +96,38 @@ class ModificarPerfilController extends Controller
     public function AdminUpdate(Request $request, int $id)
     {
         $message=([
-            'required'=>'verifique que todos los campos hayan sido diligenciados correctamente'
+            'required'=>'verifique que todos los campos hayan sido diligenciados correctamente',
         ]);
 
         $request->validate([
             'name' => 'required|string',
-            'email' => 'required|string|email',
-            'cedula' => 'required|integer|min:0',
-            'password'  => 'required|string|min:8',
         ],$message);
 
+        if(!is_Null($request['password']) or $request['password'] = ''){
+            $message=([
+                'required'=>'La contraseña no debe contener espacios en blanco',
+                'regex'=>'La contraseña no debe contener espacios en blanco',
+            ]);
+            $request->validate([
+                'password' => ['string','min:8','required','regex:/^\S*$/']
+            ],$message);
+        }else{
+            $user = User::find($id);
+            $request['password'] = $user -> password;
+        }
+
         $user = User::find($id);
+        if($user->cedula <> $request['cedula'] ){
+            $request->validate([
+                'cedula' => 'required|integer|min:0|unique:users',
+            ],$message);
+        }
+        if($user->email <> $request['email'] ){
+            $request->validate([
+                'email' => 'required|string|email|unique:users',
+            ],$message);
+        }
+
         $user->update($request->all());
 
         return redirect() -> route('admin.showUsers')

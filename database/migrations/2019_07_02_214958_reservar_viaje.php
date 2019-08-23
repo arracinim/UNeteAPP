@@ -23,6 +23,7 @@ class ReservarViaje extends Migration
             $table->unsignedBigInteger('id_oferta')->references('id')->on('users');
             $table->unsignedBigInteger('id_vehiculo')->references('id')->on('vehiculos');
             $table->unsignedBigInteger('id_reserva')->references('id')->on('users');
+            $table->unsignedBigInteger('id_viaje')->references('id')->on('viaje');
             $table->timestamps();
         });
     }

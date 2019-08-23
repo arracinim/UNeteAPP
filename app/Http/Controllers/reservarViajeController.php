@@ -32,6 +32,7 @@ class reservarViajeController extends Controller
         $request['destino'] = $viajeSeleccionado[0] -> destino;
         $request['punto_de_encuentro'] = $viajeSeleccionado[0] -> punto_de_encuentro;
         $request['id_vehiculo'] = $viajeSeleccionado[0] -> id_vehiculo;
+        $request['id_viaje'] =  $id;
 
 
         viajeReservado::Create($request->all());
@@ -39,8 +40,6 @@ class reservarViajeController extends Controller
 
         return redirect() -> route('viajes.reserve')
             -> with('success','Viaje reservado exitosamente');
-
-
     }
 
 }

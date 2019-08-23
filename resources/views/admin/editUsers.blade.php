@@ -84,8 +84,7 @@
 
                                 <div class="col-md-6">
                                     <input id="tipo" type="password"
-                                           class="form-control @error('password') is-invalid @enderror" name="password"
-                                           value="{{ $usuario->password }}" autocomplete="password">
+                                           class="form-control @error('password') is-invalid @enderror" name="password" autocomplete="password">
 
                                     @error('password')
                                     <span class="invalid-feedback" role="alert">

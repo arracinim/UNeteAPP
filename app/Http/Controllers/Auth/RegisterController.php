@@ -52,7 +52,7 @@ class RegisterController extends Controller
             'name' => ['required', 'string'],
             'email' => ['required', 'string', 'email', 'unique:users', 'regex:/^([a-z0-9_\.-]+)@unal\.edu.co$/'],
             'cedula' => ['required', 'integer', 'min:0' , 'unique:users'],
-            'password' => ['required', 'string', 'min:8'],
+            'password' => ['required', 'string', 'min:8', 'regex:/^\S*$/'],
         ]);
     }
 

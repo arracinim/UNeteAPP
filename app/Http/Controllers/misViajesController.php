@@ -20,24 +20,26 @@ class misViajesController extends Controller
             ->with('viajesOfertados',$viajesOfertados);
     }
 
-    public function deleteOfer(Viaje $Viaje){
+    public function deleteOfer($id){
 
-        DB::delete("DELETE FROM viajereservado WHERE id_oferta=?",[$Viaje->id]);
+        DB::delete("DELETE FROM viajereservado WHERE id_oferta=?",[$id]);
 
-        $Viaje->delete();
+        $viaje = Viaje::find($id);
+        $viaje->delete();
         return redirect()->route('viajes.misviajes')
             ->with('success','VIAJE ELIMINADO EXITOSAMENTE');
 
     }
 
-    public function deleteReserve(viajeReservado $Viaje){
+    public function deleteReserve($id){
 
-        $id = $Viaje->id;
-        $viajeReservado = Viaje::find($id);
-        $viajeReservado['puestos_disponibles'] = $viajeReservado['puestos_disponibles'] + 1;
-        $viajeReservado->save();
+        $ViajeReser = viajeReservado::find($id );
 
-        $Viaje->delete();
+        $viaje = Viaje::find($ViajeReser->id_viaje);
+        $viaje['puestos_disponibles'] = $viaje['puestos_disponibles'] + 1;
+        $viaje->save();
+
+        $ViajeReser->delete();
         return redirect()->route('viajes.misviajes')
             ->with('success','RESERVA CANCELADA EXITOSAMENTE');
 
