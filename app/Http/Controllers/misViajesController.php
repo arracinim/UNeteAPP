@@ -22,6 +22,8 @@ class misViajesController extends Controller
 
     public function deleteOfer(Viaje $Viaje){
 
+        DB::delete("DELETE FROM viajereservado WHERE id_oferta=?",[$Viaje->id]);
+
         $Viaje->delete();
         return redirect()->route('viajes.misviajes')
             ->with('success','VIAJE ELIMINADO EXITOSAMENTE');

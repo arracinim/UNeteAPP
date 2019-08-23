@@ -50,8 +50,5 @@ class ViajeController extends Controller
         $viaje = Viaje::find($id);
         $viaje['puestos_disponibles'] = $viaje['puestos_disponibles']-1 ;
         $viaje->save();
-
-
-
     }
 }
