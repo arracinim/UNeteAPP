@@ -1,13 +1,14 @@
 # UNeteAPP
 
-##Desarrolladores
+## Desarrolladores
 1. Angel David Rios
 2. Angel Racini Meza
 3. David Ospina Osorio
 4. Juan pablo Betancur Giraldo
 
 
-### Como hacer que funcione
+### ¿Cómo hacer que funcione?
+
 Para que el proyecto funcione correctamente se deben realizar los siguientes pasos:
 1.  Realizar la configuración del archivo ".env" para determinar que gestor de base de datos se va a trabajar, y que nombre se le va a dar a la base de datos (se le asignó el nombre dagrd_V3).
 2. Escribir el comando "php composer install".
