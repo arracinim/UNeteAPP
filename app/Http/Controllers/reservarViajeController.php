@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\viajeReservado;
 use Illuminate\Support\Facades\Auth;
@@ -14,7 +15,8 @@ class reservarViajeController extends Controller
     //Extraigo todos los viajes de la base de datos y los muestro
     public function index()
     {
-        $viajes = DB::select('SELECT * FROM viajes WHERE puestos_disponibles>0 AND id_estudiante<>'.auth()->id());
+        $viajes = DB::select("SELECT * FROM viajes WHERE puestos_disponibles>0 AND viajes.hora_de_salida>Now() AND id_estudiante<> ? 
+                                    AND NOT EXISTS(SELECT id FROM viajereservado WHERE id_reserva=? AND viajereservado.hora_de_salida > Now())", [auth()->id(),auth()->id()]);
         return view('viajes/reserve')->with('viajes',$viajes);
     }
 

@@ -32,6 +32,11 @@ class misViajesController extends Controller
 
     public function deleteReserve(viajeReservado $Viaje){
 
+        $id = $Viaje->id;
+        $viajeReservado = Viaje::find($id);
+        $viajeReservado['puestos_disponibles'] = $viajeReservado['puestos_disponibles'] + 1;
+        $viajeReservado->save();
+
         $Viaje->delete();
         return redirect()->route('viajes.misviajes')
             ->with('success','RESERVA CANCELADA EXITOSAMENTE');
