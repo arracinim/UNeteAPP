@@ -69,7 +69,7 @@
                         <tr>
                             <td colspan="6">
                                 <div class="alert alert-warning" role="alert">
-                                    No hay viajes disponibles actualmente
+                                    No hay viajes disponibles actualmente o tiene un viaje reservado pendiente de realizarse
                                 </div>
                             </td>
                         </tr>
